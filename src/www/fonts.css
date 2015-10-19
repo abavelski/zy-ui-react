@@ -1,0 +1,116 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?7uy5dg');
+	src:url('fonts/icomoon.eot?7uy5dg#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?7uy5dg') format('truetype'),
+		url('fonts/icomoon.woff?7uy5dg') format('woff'),
+		url('fonts/icomoon.svg?7uy5dg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-stack:before {
+	content: "\e92e";
+}
+.icon-credit-card:before {
+	content: "\e93f";
+}
+.icon-envelop:before {
+	content: "\e945";
+}
+.icon-database:before {
+	content: "\e964";
+}
+.icon-bubbles4:before {
+	content: "\e970";
+}
+.icon-users:before {
+	content: "\e972";
+}
+.icon-user-check:before {
+	content: "\e975";
+}
+.icon-user-tie:before {
+	content: "\e976";
+}
+.icon-cog:before {
+	content: "\e994";
+}
+.icon-cogs:before {
+	content: "\e995";
+}
+.icon-hammer:before {
+	content: "\e996";
+}
+.icon-stats-dots:before {
+	content: "\e99b";
+}
+.icon-menu3:before {
+	content: "\e9bf";
+}
+.icon-cross:before {
+	content: "\ea0f";
+}
+.icon-checkmark:before {
+	content: "\ea10";
+}
+.icon-backward2:before {
+	content: "\ea1f";
+}
+.icon-forward3:before {
+	content: "\ea20";
+}
+.icon-first:before {
+	content: "\ea21";
+}
+.icon-last:before {
+	content: "\ea22";
+}
+.icon-previous2:before {
+	content: "\ea23";
+}
+.icon-next2:before {
+	content: "\ea24";
+}
+.icon-arrow-up-left2:before {
+	content: "\ea39";
+}
+.icon-arrow-up2:before {
+	content: "\ea3a";
+}
+.icon-arrow-up-right2:before {
+	content: "\ea3b";
+}
+.icon-arrow-right2:before {
+	content: "\ea3c";
+}
+.icon-arrow-down-right2:before {
+	content: "\ea3d";
+}
+.icon-arrow-down2:before {
+	content: "\ea3e";
+}
+.icon-arrow-down-left2:before {
+	content: "\ea3f";
+}
+.icon-arrow-left2:before {
+	content: "\ea40";
+}
+.icon-tux:before {
+	content: "\eabe";
+}
+
