@@ -10,7 +10,7 @@
     import Campaigns from './components/settings/Campaigns';
     import Prices from './components/settings/Prices';
 
-    import MainMenu from './components/MainMenu';
+    import MainMenu from './components/menu/MainMenu';
 
     let LightRawTheme = require('material-ui/lib/styles/raw-themes/light-raw-theme');
     let ThemeManager = require('material-ui/lib/styles/theme-manager');
@@ -30,8 +30,8 @@
         };
       }
 
-      menuChanged(tab){
-        this.context.router.transitionTo(tab.props.value);
+      menuChanged(link) {
+        this.context.router.transitionTo(link);
       }
 
       render() {
