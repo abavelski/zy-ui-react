@@ -3,6 +3,9 @@
     import Router, { Route, RouteHandler, DefaultRoute, NotFoundRoute, Redirect, Link } from 'react-router';
 
     import Signup from './components/customercare/Signup';
+    import ChooseNumber from './components/customercare/ChooseNumber';
+    import UserData from './components/customercare/UserData';
+
     import Customers from './components/customercare/Customers';
     import Reports from './components/analytics/Reports';
     import Invoices from './components/billing/Invoices';
@@ -56,14 +59,17 @@
 
     const AppRoutes = (
       <Route path="/" handler={App}>
+          <Route name="cc.customers" path="cc/customers" handler={Customers} />
+
         <Route name="cc.signup" path="cc/signup" handler={Signup} />
-        <Route name="cc.customers" path="cc/customers" handler={Customers} />
+        <Route name="cc.signup.number" path="cc/signup/anumber" handler={ChooseNumber}/>
+        <Route name="cc.signup.user" path="cc/signup/user" handler={UserData}/>
+
         <Route name="ba.invoices" path="ba/invoices" handler={Invoices} />
         <Route name="ss.prices" path="ss/prices" handler={Prices} />
         <Route name="ss.campaigns" path="ss/campaigns" handler={Campaigns} />
         <Route name="a.reports" path="a/reports" handler={Reports} />
         <Route name="sm.engines" path="sm/engines" handler={Engines} />
-
         <Redirect from="/" to="cc.signup" />
       </Route>
     );

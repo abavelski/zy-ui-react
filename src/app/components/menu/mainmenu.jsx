@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton, IconMenu, FontIcon, Tabs, Tab } from 'material-ui';
+import { IconButton, IconMenu, FontIcon, Tabs, Tab, TextField } from 'material-ui';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 
 import menuItems from './menuItems';
@@ -41,6 +41,7 @@ class MainMenu extends React.Component {
 
     render() {
         let iconButton = <IconButton iconClassName="icon-stack" iconStyle={styles.iconStyle}/>;
+        let getTabKey = item => this.state.selectedMenu.value + '.' + item;
 
         return <header>
                 <div style={styles.tabsContainer}>
@@ -51,11 +52,11 @@ class MainMenu extends React.Component {
                               iconButtonElement={iconButton}
                               openDirection="bottom-right">
 
-                        {menuItems.map((item)=>{
-                            return <MenuItem value={item.value}
-                                             primaryText={item.name}
-                                             leftIcon={<FontIcon className={item.icon} />}/>
-                        })}
+                        {menuItems.map(item=> <MenuItem value={item.value}
+                                                        key={item.value}
+                                                primaryText={item.name}
+                                                leftIcon={<FontIcon className={item.icon} />}/>
+                        )}
 
                     </IconMenu>
 
@@ -64,11 +65,10 @@ class MainMenu extends React.Component {
                     <Tabs style={styles.tabs} contentContainerStyle={styles.contentContainerStyle}
                           valueLink={{value: this.state.tabsValue, requestChange: this._handleTabsChange.bind(this)}}>
 
-                        {this.state.selectedMenu.tabs.map((item) => {
-                            return <Tab label={item.toUpperCase()}
-                                        value={this.state.selectedMenu.value + '.' + item}
-                                        onActive={this.changeTab} />
-                        })}
+                        {this.state.selectedMenu.tabs.map(item => <Tab label={item.toUpperCase()}
+                                                                    value={getTabKey(item)} key={getTabKey(item)}
+                                                                    onActive={this.changeTab} />
+                        )}
 
                     </Tabs>
                 </div>
