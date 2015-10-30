@@ -9,7 +9,7 @@ class UserData extends React.Component {
     }
 
     handleCancel() {
-        this.context.router.transitionTo('cc.signup');
+        this.props.history.pushState(null, "/cc/signup");
     }
 
     render() {
@@ -33,9 +33,5 @@ class UserData extends React.Component {
         );
     }
 }
-
-UserData.contextTypes = {
-    router: React.PropTypes.func
-};
 
 export default UserData;

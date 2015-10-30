@@ -18,11 +18,11 @@ class ChooseNumber extends React.Component {
   }
 
   handleCancel() {
-    this.context.router.transitionTo('cc.signup');
+    this.props.history.pushState(null, "/cc/signup");
   }
 
   handleContinue() {
-    this.context.router.transitionTo('cc.signup.user');
+    this.props.history.pushState(null, "/cc/user-data");
   }
 
   render() {

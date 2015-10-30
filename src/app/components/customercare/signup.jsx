@@ -16,6 +16,11 @@ class Signup extends React.Component {
         getPackages(items => this.setState({items : items}));
     }
 
+    startSignup(item) {
+        console.log('starting signup', item);
+        this.props.history.pushState(null, "/cc/choose-number");
+    }
+
     render() {
         return <ul style={styles.flexContainer}>
                 {this.state.items.map((item, index) =>
@@ -29,11 +34,7 @@ class Signup extends React.Component {
                             <h3>{item.price}</h3>
                         </CardText>
                         <CardActions style={styles.b}>
-                            <RaisedButton
-                                primary={true}
-                                containerElement={<Link to="cc.signup.number" />}
-                                linkButton={true}
-                                label="buy"/>
+                            <RaisedButton primary={true} label="buy" onMouseDown={this.startSignup.bind(this, item)}/>
                         </CardActions>
                     </Card>
                     </li>)}

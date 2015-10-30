@@ -11,7 +11,7 @@ class MainMenu extends React.Component {
         super();
         this.state = {
             selectedMenu: menuItems[0],
-            tabsValue: menuItems[0].value +'.'+ menuItems[0].tabs[0]
+            tabsValue: '/'+menuItems[0].value +'/'+ menuItems[0].tabs[0]
 
         };
         this.clicked = this.clicked.bind(this);
@@ -21,10 +21,10 @@ class MainMenu extends React.Component {
     clicked(e, value) {
         for (let i=0;i<menuItems.length;i++) {
             if (menuItems[i].value===value) {
-                this.props.goTo(menuItems[i].value+'.'+menuItems[i].tabs[0]);
+                this.props.goTo('/'+menuItems[i].value+'/'+menuItems[i].tabs[0]);
                 this.setState({
                     selectedMenu: menuItems[i],
-                    tabsValue: menuItems[i].value+'.'+menuItems[i].tabs[0]
+                    tabsValue: '/'+menuItems[i].value+'/'+menuItems[i].tabs[0]
                 });
                 break;
             }
@@ -41,7 +41,7 @@ class MainMenu extends React.Component {
 
     render() {
         let iconButton = <IconButton iconClassName="icon-stack" iconStyle={styles.iconStyle}/>;
-        let getTabKey = item => this.state.selectedMenu.value + '.' + item;
+        let getTabKey = item => '/'+this.state.selectedMenu.value + '/' + item;
 
         return <header>
                 <div style={styles.tabsContainer}>
