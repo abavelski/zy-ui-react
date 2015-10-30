@@ -7,14 +7,15 @@ class ChooseNumber extends React.Component {
   constructor() {
     super();
     this.state = {
-      numbers : []
+      numbers : [],
+      selectedNumber:null
     };
     this.handleCancel = this.handleCancel.bind(this);
     this.handleContinue = this.handleContinue.bind(this);
   }
 
   componentDidMount() {
-    getRandomPhoneNumbers(10, numbers => this.setState({numbers : numbers}));
+    getRandomPhoneNumbers(10, numbers => this.setState({numbers : numbers, selectedNumber: numbers[0]}));
   }
 
   handleCancel() {
@@ -31,7 +32,7 @@ class ChooseNumber extends React.Component {
           <Card style={styles.wizardItem}>
             <CardTitle style={styles.header} title="choose phone number"/>
             <CardText>
-              <RadioButtonGroup name="phoneNumbers">
+              <RadioButtonGroup name="phoneNumbers" valueSelected={this.state.selectedNumber}>
                 {this.state.numbers.map(number =>
                         <RadioButton style={styles.numberItem} value={number} label={number} key={number} />
                 )}

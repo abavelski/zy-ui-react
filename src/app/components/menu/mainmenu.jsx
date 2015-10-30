@@ -12,19 +12,20 @@ class MainMenu extends React.Component {
         this.state = {
             selectedMenu: menuItems[0],
             tabsValue: '/'+menuItems[0].value +'/'+ menuItems[0].tabs[0]
-
         };
-        this.clicked = this.clicked.bind(this);
+
+        this.menuClicked = this.menuClicked.bind(this);
         this.changeTab = this.changeTab.bind(this);
     }
 
-    clicked(e, value) {
+    menuClicked(e, value) {
         for (let i=0;i<menuItems.length;i++) {
             if (menuItems[i].value===value) {
-                this.props.goTo('/'+menuItems[i].value+'/'+menuItems[i].tabs[0]);
+                let link = '/' + menuItems[i].value + '/' + menuItems[i].tabs[0];
+                this.props.goTo(link);
                 this.setState({
                     selectedMenu: menuItems[i],
-                    tabsValue: '/'+menuItems[i].value+'/'+menuItems[i].tabs[0]
+                    tabsValue: link
                 });
                 break;
             }
@@ -35,7 +36,7 @@ class MainMenu extends React.Component {
         this.props.goTo(tab.props.value);
     }
 
-    _handleTabsChange(value, e, tab){
+    handleTabsChange(value, e, tab){
         this.setState({tabsValue: value});
     }
 
@@ -47,28 +48,24 @@ class MainMenu extends React.Component {
                 <div style={styles.tabsContainer}>
 
                     <IconMenu style={styles.iconButton}
-                              onChange={this.clicked}
+                              onChange={this.menuClicked}
                               value={this.state.selectedMenu.value}
                               iconButtonElement={iconButton}
                               openDirection="bottom-right">
 
-                        {menuItems.map(item=> <MenuItem value={item.value}
-                                                        key={item.value}
+                        {menuItems.map(item => <MenuItem value={item.value} key={item.value}
                                                 primaryText={item.name}
-                                                leftIcon={<FontIcon className={item.icon} />}/>
-                        )}
-
+                                                leftIcon={<FontIcon className={item.icon} />}/>)}
                     </IconMenu>
 
                     <div style={styles.div}><span style={styles.txt}>{this.state.selectedMenu.name}</span></div>
 
                     <Tabs style={styles.tabs} contentContainerStyle={styles.contentContainerStyle}
-                          valueLink={{value: this.state.tabsValue, requestChange: this._handleTabsChange.bind(this)}}>
+                          valueLink={{value: this.state.tabsValue, requestChange: this.handleTabsChange.bind(this)}}>
 
                         {this.state.selectedMenu.tabs.map(item => <Tab label={item.toUpperCase()}
                                                                     value={getTabKey(item)} key={getTabKey(item)}
-                                                                    onActive={this.changeTab} />
-                        )}
+                                                                    onActive={this.changeTab} />)}
 
                     </Tabs>
                 </div>
